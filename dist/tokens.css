@@ -1,0 +1,8 @@
+@font-face{font-family:Gloock;src:url('/assets/gloock.woff2') format('woff2');font-display:swap;font-weight:400}
+@font-face{font-family:Hanken;src:url('/assets/hanken.woff2') format('woff2');font-display:swap;font-weight:100 900}
+@font-face{font-family:'Gloock fallback';src:local('Times New Roman'),local('Liberation Serif'),local('Tinos');size-adjust:108.10%;ascent-override:90.66%;descent-override:21.28%;line-gap-override:0%}
+@font-face{font-family:'Hanken fallback';src:local('Arial'),local('Liberation Sans'),local('Arimo');size-adjust:99.15%;ascent-override:100.86%;descent-override:30.26%;line-gap-override:0%}
+:root{--font-display:Gloock,'Gloock fallback',Georgia,serif;--font-text:Hanken,'Hanken fallback','Segoe UI',Arial,sans-serif}
+:root{color-scheme:light;--night:#102d27;--night-raised:#193b32;--gold:#e4c37d;--leaf:#b7caa2;--ground:#f4f6f1;--surface:#fff;--ink:#163b30;--ink-2:#4e6258;--rule:#c4d0c4;--font-display:Gloock,Georgia,'Times New Roman',serif;--font-text:Hanken,'Segoe UI',Arial,'Liberation Sans',sans-serif;--t-display:clamp(3.2rem,5.7vw,5.8rem);--t-h1:clamp(2.5rem,5vw,4.7rem);--t-h2:clamp(2rem,3.2vw,3.25rem);--t-h3:1.5rem;--t-body:1.125rem;--t-small:1rem;--t-meta:.875rem;--s1:4px;--s2:8px;--s3:16px;--s4:24px;--s5:40px;--s6:64px;--s7:104px;--radius:3px;--ease:cubic-bezier(.2,.8,.2,1)}
+
+:root{--font-display:Gloock,'Gloock fallback',Georgia,serif;--font-text:Hanken,'Hanken fallback','Segoe UI',Arial,sans-serif}
