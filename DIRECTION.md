@@ -11,7 +11,7 @@ C. The Tree of LIF is cloth at desert dusk. Clay color field, heavy expanded Ari
 All rendered at 390 and 1440. A wins because the roots, moon, stars and two places belong to this logo. B loses brand specificity but contributes documentary photography. C loses calm and phone typography clarity. The third direction is retained for comparison, not shipped as the main site. Direction index was shown before the full build.
 
 ## Refused defaults
-No smiling stock children, invented impact metrics, quote carousel, icon feature cards, bento or generic charity slogan. No warm-paper italic-accent serif composition, mono numbered labels, black pill buttons, glows or purple gradients. The dark green belongs to the supplied logo, not a generic green charity palette. No invented Arizona photographs. No patient photographs while consent is unconfirmed.
+No smiling stock children, invented impact metrics, quote carousel, icon feature cards, bento or generic charity slogan. No warm-paper italic-accent serif composition, mono numbered labels, black pill buttons, glows or purple gradients. The dark green belongs to the supplied logo, not a generic green charity palette. No invented Arizona photographs. Only the brief's use-first photographs; the two that show seated patients need consent confirmed before public launch.
 
 ## Tokens
 Night #102d27: logo's green night; gold #e4c37d: ring and roots, primary action; leaf #b7caa2: foliage, place metadata. Cool pale #f4f6f1 supports long reading. Ink #163b30 and secondary #4e6258. Deep background sections have independent light text. No user-switchable dark mode: intentional mixed dark and light scenes, color-scheme light for controls.
@@ -31,3 +31,6 @@ Exact page content is authored in build.mjs before page output; outreach content
 
 ## Current behavior
 Giving reviews a selection but does not charge. Processing/failure/success views are explicitly labelled query-string design previews. Forms download a user-owned draft; they are not silently sent or stored. No consent-sensitive patient imagery, no home address, no raw legal PDFs in deploy output. New private preview hosting is intended; public launch remains a separate decision.
+
+## Round 3 redesign (October 2026)
+Editorial, photo-led build on the same direction A. The hero keeps the tree as the signature; a full-bleed Day 1 photograph follows it. All seven brief-approved photographs are graded as one set and used across Home, the day-by-day Cotonou story, Work, About, Give and Get involved, with medallion frames that echo the logo's ring on interior pages. The tree is regenerated with tapered limbs, layered leaves and a true Celtic plait (alternating over/under) for the roots; a simplified mark serves the header, favicon and icons. Copy names specific places and actions. Contact and involvement forms hand messages to WhatsApp or text. Get help opens with a 911/988 line and has no motion. Interior pages dropped from about 100KB to about 10KB of HTML by loading artwork as cached files.

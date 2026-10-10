@@ -1,8 +1,34 @@
 @font-face{font-family:Gloock;src:url('/assets/gloock.woff2') format('woff2');font-display:swap;font-weight:400}
 @font-face{font-family:Hanken;src:url('/assets/hanken.woff2') format('woff2');font-display:swap;font-weight:100 900}
-@font-face{font-family:'Gloock fallback';src:local('Times New Roman'),local('Liberation Serif'),local('Tinos');size-adjust:108.10%;ascent-override:90.66%;descent-override:21.28%;line-gap-override:0%}
+/* Metric-matched fallbacks keep layout steady while the web fonts load. */
+@font-face{font-family:'Gloock fallback';src:local('Times New Roman'),local('Liberation Serif'),local('Tinos');size-adjust:108.1%;ascent-override:90.66%;descent-override:21.28%;line-gap-override:0%}
 @font-face{font-family:'Hanken fallback';src:local('Arial'),local('Liberation Sans'),local('Arimo');size-adjust:99.15%;ascent-override:100.86%;descent-override:30.26%;line-gap-override:0%}
-:root{--font-display:Gloock,'Gloock fallback',Georgia,serif;--font-text:Hanken,'Hanken fallback','Segoe UI',Arial,sans-serif}
-:root{color-scheme:light;--night:#102d27;--night-raised:#193b32;--gold:#e4c37d;--leaf:#b7caa2;--ground:#f4f6f1;--surface:#fff;--ink:#163b30;--ink-2:#4e6258;--rule:#c4d0c4;--font-display:Gloock,Georgia,'Times New Roman',serif;--font-text:Hanken,'Segoe UI',Arial,'Liberation Sans',sans-serif;--t-display:clamp(3.2rem,5.7vw,5.8rem);--t-h1:clamp(2.5rem,5vw,4.7rem);--t-h2:clamp(2rem,3.2vw,3.25rem);--t-h3:1.5rem;--t-body:1.125rem;--t-small:1rem;--t-meta:.875rem;--s1:4px;--s2:8px;--s3:16px;--s4:24px;--s5:40px;--s6:64px;--s7:104px;--radius:3px;--ease:cubic-bezier(.2,.8,.2,1)}
 
-:root{--font-display:Gloock,'Gloock fallback',Georgia,serif;--font-text:Hanken,'Hanken fallback','Segoe UI',Arial,sans-serif}
+:root{
+  color-scheme:light;
+  /* Night: the logo's green sky. Gold: its ring and roots, and the one action colour. */
+  --night:#102d27;--night-deep:#0c2420;--night-raised:#173e33;--line-dark:#2c4c42;
+  --gold:#e0bf78;--gold-soft:#efd7a1;--gold-deep:#7d6227;--leaf:#b7caa2;
+  --on-night:#f4f1e6;--on-night-2:#bccabd;
+  /* Daylight: cool pale reading ground with the same green as ink. */
+  --ground:#f3f5ef;--mist:#e5ebe1;--surface:#fff;--ink:#132f27;--ink-2:#4a5f55;--rule:#cfd8cd;--control:#7a8c80;
+  --focus:#97691a;
+
+  --font-display:Gloock,'Gloock fallback',Georgia,serif;
+  --font-text:Hanken,'Hanken fallback','Segoe UI',Arial,sans-serif;
+
+  /* Seven-step type scale. */
+  --t-hero:clamp(2.75rem,1.5rem + 4.6vw,6.25rem);
+  --t-1:clamp(2.4rem,1.6rem + 3vw,4.5rem);
+  --t-2:clamp(2rem,1.45rem + 2vw,3.4rem);
+  --t-3:clamp(1.45rem,1.25rem + .6vw,1.85rem);
+  --t-lede:clamp(1.125rem,1.02rem + .35vw,1.3rem);
+  --t-body:1.0625rem;
+  --t-small:.9375rem;
+  --t-meta:.8125rem;
+
+  --gutter:clamp(20px,5vw,72px);
+  --section:clamp(80px,9vw,148px);
+  --radius:3px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}

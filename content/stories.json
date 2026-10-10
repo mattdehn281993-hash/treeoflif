@@ -1,27 +1,53 @@
 [
   {
     "slug": "easter-cotonou",
-    "title": "Easter in Cotonou.",
+    "title": "Easter in Cotonou",
     "date": "Easter 2026",
     "place": "Cotonou, Benin",
+    "venue": "CNHU-HKM, the national teaching hospital",
     "partner": "Église de la Paix du Christ",
-    "summary": "Over Easter 2026, The Tree of LIF joined Église de la Paix du Christ for a multi-day hospital outreach in Cotonou. Volunteers visited patients, offered prayer, and helped families with medical bills.",
-    "sections": [
+    "team": "About 30 volunteers",
+    "summary": "Over Easter 2026, The Tree of LIF joined Église de la Paix du Christ for a multi-day hospital outreach in Cotonou. Volunteers visited patients ward by ward, prayed with them, and helped families with medical bills.",
+    "cover": "team",
+    "coverAlt": "About thirty volunteers in Tree of LIF and church shirts stand together outside CNHU-HKM in Cotonou",
+    "coverCaption": "The outreach team outside CNHU-HKM, Cotonou. Day 3.",
+    "chapters": [
       {
-        "heading": "Going where care was needed.",
-        "text": "At CNHU-HKM, the team walked through the hospital, visiting patients ward by ward. The outreach brought practical support and a chance for patients and families to be heard.",
-        "photo": "arrival",
-        "alt": "Volunteers enter the hospital wearing Tree of LIF and church partnership shirts",
-        "caption": "The partnership is written on the volunteers’ shirts as they enter the hospital."
+        "label": "Day 1",
+        "heading": "Arriving at the hospital",
+        "text": [
+          "The team met at CNHU-HKM, the national teaching hospital in Cotonou. Volunteers from The Tree of LIF and Église de la Paix du Christ wore the same shirt, with both names printed on the back.",
+          "The first photographs show the team gathering and greeting people outside the hospital."
+        ],
+        "photos": [
+          {"photo": "arrival", "alt": "Volunteers walk toward the hospital entrance; the shirt in front reads ONG The Tree of LIF, en collaboration avec l’Église de la Paix du Christ", "caption": "The partnership, printed on the volunteers’ shirts as they walk in.", "wide": true},
+          {"photo": "handshake", "alt": "A volunteer shakes hands with a smiling woman outside the hospital", "caption": "A welcome outside the hospital on the first day."}
+        ]
       },
       {
-        "heading": "Prayer and practical support.",
-        "text": "Volunteers prayed with patients and helped cover costs for families facing medical bills. The work combined presence with practical help, in partnership with the local church."
+        "label": "Day 3",
+        "heading": "Ward by ward",
+        "text": [
+          "The team visited patients ward by ward. They sat with patients and their families, prayed with them, and helped families who were facing the cost of care.",
+          "The work was simple and practical: being present, and helping with bills where they could."
+        ],
+        "photos": [
+          {"photo": "bedside", "alt": "Volunteers stand together at a bedside in a hospital room", "caption": "Volunteers gathered at a bedside.", "wide": true},
+          {"photo": "prayer", "alt": "Two volunteers pray with a young man seated on his hospital bed", "caption": "Praying with a young patient."},
+          {"photo": "singing", "alt": "Volunteers sing and pray beside a seated patient", "caption": "Singing beside a patient’s bed."}
+        ]
       },
       {
-        "heading": "A beginning to build on.",
-        "text": "These photographs document the Easter outreach. As the work develops, this space will hold the next account of where the team went and what happened."
+        "label": "Next",
+        "heading": "A beginning to build on",
+        "text": [
+          "Easter 2026 is the first outreach documented on this site. As the work grows, the next account will be published here."
+        ],
+        "photos": [
+          {"photo": "shirt", "alt": "A volunteer seen from behind, his shirt printed with the Tree of LIF logo and the church partnership", "caption": "The Tree of LIF, en collaboration avec l’Église de la Paix du Christ."}
+        ]
       }
-    ]
+    ],
+    "cost": "A verified cost breakdown has not been published yet. We will add it when the team confirms the figures, so that every number on this page is real."
   }
 ]
