@@ -86,6 +86,12 @@ button,input,select,textarea{font:inherit;color:inherit}
 .hero .lede{margin:30px 0 40px;color:var(--on-night-2);max-width:46ch}
 .hero-art{position:relative;padding-bottom:40px}
 .hero-art .tree-art{width:100%;max-width:640px;margin-inline:auto;overflow:visible}
+/* Hero tree: stacked layers so whole layers move without repainting every leaf. */
+.tree-stage{position:relative;width:100%;max-width:640px;margin-inline:auto;aspect-ratio:600/560}
+.tree-stage .layer{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.l-back,.l-front{transform-origin:50% 78.2%}
+.l-life{pointer-events:none}
+.bloom,.fall{opacity:0}
 .place{position:absolute;bottom:0;font-size:var(--t-small);color:var(--on-night-2);line-height:1.4}
 .place span{display:block;margin-bottom:4px;font-size:var(--t-meta);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
 .place.left{left:4%}
@@ -109,6 +115,18 @@ button,input,select,textarea{font:inherit;color:inherit}
   .story-card-img img,.photo img{transition:transform 1.2s var(--ease)}
   .story-card:hover .story-card-img img{transform:scale(1.03)}
 }
+/* After the signature, the tree lives: wind in the crown, blossoms opening,
+@media (prefers-reduced-motion:no-preference){
+  .l-back{animation:sway 9s ease-in-out 3.2s infinite alternate both}
+  .l-front{animation:sway-front 6.5s ease-in-out 3.2s infinite alternate both}
+  .bloom{transform-box:fill-box;transform-origin:center;animation:bloom 11s var(--ease) var(--d) infinite both}
+  .fall{transform-box:fill-box;transform-origin:center;animation:fall 15s linear var(--d) infinite both}
+  .hero.is-idle .layer,.hero.is-idle .layer *{animation-play-state:paused!important}
+}
+@keyframes sway{from{transform:rotate(-.6deg)}to{transform:rotate(.7deg)}}
+@keyframes sway-front{from{transform:rotate(.75deg) translateX(-1px)}to{transform:rotate(-.65deg) translateX(1.5px)}}
+@keyframes bloom{0%{opacity:0;transform:scale(0) rotate(-50deg)}12%{opacity:1;transform:scale(1.2) rotate(0)}18%{transform:scale(1)}62%{opacity:1;transform:scale(1)}74%,100%{opacity:0;transform:scale(.3) rotate(25deg)}}
+@keyframes fall{0%{opacity:0;transform:translate(0,0) rotate(0)}6%{opacity:.9}35%{transform:translate(calc(var(--x) * -.6),110px) rotate(200deg)}70%{opacity:.75;transform:translate(var(--x),220px) rotate(380deg)}100%{opacity:0;transform:translate(calc(var(--x) * .4),330px) rotate(560deg)}}
 @keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 @keyframes fade{from{opacity:0}}
 @keyframes rise{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}

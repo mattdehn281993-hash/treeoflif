@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import {treeSvg, markSvg, knotSvg, GOLD} from './tree.mjs';
+import {treeSvg, heroTree, markSvg, knotSvg, GOLD} from './tree.mjs';
 
 const out = 'dist';
 fs.mkdirSync(path.join(out, 'assets'), {recursive: true});
@@ -94,7 +94,7 @@ const home = `
 <div class="hero-copy">${eyebrow('Maricopa, Arizona · Cotonou, Benin')}<h1>From Maricopa to Cotonou, we show up in person.</h1>
 <p class="lede">The Tree of LIF is a young, faith-rooted nonprofit. At home in Arizona we help neighbors find food, shelter and a way into recovery. In Benin we visit hospital patients and help families with their bills.</p>
 <div class="actions">${button('/give/', 'Give to the work')}${link('/stories/easter-cotonou/', 'Read the Easter story', 'text-link on-dark')}</div></div>
-<div class="hero-art">${treeSvg()}<p class="place left"><span>Our roots</span>Maricopa, Arizona</p><p class="place right"><span>Our branches</span>Cotonou, Benin</p></div>
+<div class="hero-art">${heroTree()}<p class="place left"><span>Our roots</span>Maricopa, Arizona</p><p class="place right"><span>Our branches</span>Cotonou, Benin</p></div>
 </div></section>
 
 <section class="plate" aria-label="From the Easter 2026 outreach"><picture><source media="(max-width: 700px)" srcset="/assets/arrival-square-800.webp">${img('arrival', 'Volunteers walk into CNHU-HKM hospital; the shirt in front reads ONG The Tree of LIF, en collaboration avec l’Église de la Paix du Christ', {sizes: '100vw'})}</picture>

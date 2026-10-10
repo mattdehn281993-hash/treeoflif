@@ -137,3 +137,10 @@ document.querySelectorAll('.message-form').forEach(form => {
     window.location.href = href;
   });
 });
+
+// ------------------------------------------------------------ the living tree
+// The hero tree's ambient motion pauses while it is off-screen.
+const hero = document.querySelector('.hero');
+if (hero && 'IntersectionObserver' in window) {
+  new IntersectionObserver(([entry]) => hero.classList.toggle('is-idle', !entry.isIntersecting), {threshold: 0.05}).observe(hero);
+}

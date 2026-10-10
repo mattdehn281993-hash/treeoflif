@@ -114,7 +114,7 @@ function sky(mono) {
 const band = (d, ink, casing, w = 4.4, attrs = '') => `<path${attrs} d="${d}" stroke="${casing}" stroke-width="${w + 4}"/><path${attrs} d="${d}" stroke="${ink}" stroke-width="${w}"/>`;
 const patch = (p, ink, casing, w = 4.4) => `<path d="${p.casing}" stroke="${casing}" stroke-width="${w + 4}"/><path d="${p.ink}" stroke="${ink}" stroke-width="${w}"/>`;
 
-export function treeSvg({mono = false, label = true, className = ''} = {}) {
+function parts({mono = false} = {}) {
   const rand = random(29);
   const {limbs, tips} = growTree(rand);
   const crown = canopy(rand, tips, mono);
@@ -126,7 +126,43 @@ export function treeSvg({mono = false, label = true, className = ''} = {}) {
     'M428 470C460 470 488 474 510 486C532 498 550 494 554 478C557 465 545 458 536 465',
     'M240 430C214 424 186 428 160 440', 'M360 430C386 424 414 428 440 440',
   ];
-  return `<svg class="tree-art ${className}" viewBox="0 0 600 560" xmlns="http://www.w3.org/2000/svg" ${label ? 'role="img" aria-label="A gold tree inside a ring, with a crescent moon, stars and roots woven into a knot"' : 'aria-hidden="true"'}><defs><path id="tl" d="M-11 0C-5-6.5 6-6.5 12 0C6 6.5-5 6.5-11 0Z"/></defs><g class="ring" fill="none" stroke="${ink}"><circle cx="300" cy="276" r="262" stroke-width="1.2" opacity=".5"/><circle cx="300" cy="276" r="252" stroke-width=".7" opacity=".28"/></g>${sky(mono)}<g class="crown">${crown.back}<path class="trunk" fill="${bark}" d="${limbs.join('')}"/>${crown.front}</g><g class="roots" fill="none" stroke-linecap="round" stroke-linejoin="round">${tendrils.map(d => `<path class="tendril" pathLength="1" d="${d}" stroke="${ink}" stroke-width="3"/>`).join('')}${band(k.full, ink, casing, 4.4, ' class="knot" pathLength="1"')}<g class="weave">${k.patches.map(p => patch(p, ink, casing)).join('')}</g></g></svg>`;
+  return {
+    tips,
+    defs: '<defs><path id="tl" d="M-11 0C-5-6.5 6-6.5 12 0C6 6.5-5 6.5-11 0Z"/></defs>',
+    ring: `<g class="ring" fill="none" stroke="${ink}"><circle cx="300" cy="276" r="262" stroke-width="1.2" opacity=".5"/><circle cx="300" cy="276" r="252" stroke-width=".7" opacity=".28"/></g>`,
+    sky: sky(mono),
+    back: crown.back,
+    trunk: `<path class="trunk" fill="${bark}" d="${limbs.join('')}"/>`,
+    front: crown.front,
+    roots: `<g class="roots" fill="none" stroke-linecap="round" stroke-linejoin="round">${tendrils.map(d => `<path class="tendril" pathLength="1" d="${d}" stroke="${ink}" stroke-width="3"/>`).join('')}${band(k.full, ink, casing, 4.4, ' class="knot" pathLength="1"')}<g class="weave">${k.patches.map(p => patch(p, ink, casing)).join('')}</g></g>`,
+  };
+}
+
+const LABEL = 'A gold tree inside a ring, with a crescent moon, stars and roots woven into a knot';
+
+export function treeSvg({mono = false, label = true, className = ''} = {}) {
+  const t = parts({mono});
+  return `<svg class="tree-art ${className}" viewBox="0 0 600 560" xmlns="http://www.w3.org/2000/svg" ${label ? `role="img" aria-label="${LABEL}"` : 'aria-hidden="true"'}>${t.defs}${t.ring}${t.sky}<g class="crown">${t.back}${t.trunk}${t.front}</g>${t.roots}</svg>`;
+}
+
+// The hero tree: four stacked layers so the browser can move whole layers
+// cheaply. Back and front crowns sway; the life layer holds blossoms and
+// falling leaves.
+export function heroTree() {
+  const t = parts();
+  const svg = (cls, body) => `<svg class="layer ${cls}" viewBox="0 0 600 560" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${t.defs}${body}</svg>`;
+  const inCrown = ([x, y]) => Math.hypot((x - 300) / 215, (y - 190) / 140) < 1;
+  const blooms = t.tips.filter(inCrown).filter((_, i) => i % 11 === 0).slice(0, 30)
+    .map(([x, y], i) => `<g transform="translate(${Math.round(x)} ${Math.round(y)})"><use class="bloom" href="#fl" style="--d:${(3.2 + (i * 1.37) % 11).toFixed(2)}s"/></g>`).join('');
+  const falls = [[150, 210], [420, 180], [260, 120], [470, 260], [210, 290]]
+    .map(([x, y], i) => `<g transform="translate(${x} ${y})"><use class="fall" href="#tl" style="--d:${(4 + i * 3.1).toFixed(1)}s;--x:${i % 2 ? 46 : -40}px"/></g>`).join('');
+  const flower = '<g id="fl"><g fill="#f6eedb">' + [0, 72, 144, 216, 288].map(a => `<ellipse rx="2.6" ry="1.7" cx="2.6" transform="rotate(${a})"/>`).join('') + '</g><circle r="1.5" fill="#e0bf78"/></g>';
+  return `<div class="tree-stage" role="img" aria-label="${LABEL}, with blossoms">
+${svg('l-base', `${t.ring}${t.sky}${t.roots}`)}
+${svg('l-back', `<g class="crown">${t.back}${t.trunk}</g>`)}
+${svg('l-front', `<g class="crown">${t.front}</g>`)}
+${svg('l-life', `<defs>${flower}</defs><g class="blooms">${blooms}</g><g class="falls" fill="#b9c99a">${falls}</g>`)}
+</div>`;
 }
 
 // Simplified mark for the header, favicon and social card: ring, crown, trunk, knot.
