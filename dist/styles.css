@@ -116,15 +116,20 @@ button,input,select,textarea{font:inherit;color:inherit}
   .story-card:hover .story-card-img img{transform:scale(1.03)}
 }
 /* After the signature, the tree lives: wind in the crown, blossoms opening,
+   leaves falling, stars twinkling. Paused off-screen. */
 @media (prefers-reduced-motion:no-preference){
-  .l-back{animation:sway 9s ease-in-out 3.2s infinite alternate both}
-  .l-front{animation:sway-front 6.5s ease-in-out 3.2s infinite alternate both}
+  .l-back{animation:sway 5.5s ease-in-out 3.2s infinite alternate both}
+  .l-front{animation:sway-front 4.2s ease-in-out 3.2s infinite alternate both}
+  .hero .l-base .sky path:not(:first-child){transform-box:fill-box;transform-origin:center;animation:twinkle 3.6s ease-in-out 3.6s infinite}
+  .hero .l-base .sky path:nth-child(3){animation-delay:4.8s}
+  .hero .l-base .sky path:nth-child(4){animation-delay:5.9s}
   .bloom{transform-box:fill-box;transform-origin:center;animation:bloom 11s var(--ease) var(--d) infinite both}
-  .fall{transform-box:fill-box;transform-origin:center;animation:fall 15s linear var(--d) infinite both}
+  .fall{transform-box:fill-box;transform-origin:center;animation:fall 11s linear var(--d) infinite both}
   .hero.is-idle .layer,.hero.is-idle .layer *{animation-play-state:paused!important}
 }
-@keyframes sway{from{transform:rotate(-.6deg)}to{transform:rotate(.7deg)}}
-@keyframes sway-front{from{transform:rotate(.75deg) translateX(-1px)}to{transform:rotate(-.65deg) translateX(1.5px)}}
+@keyframes sway{from{transform:rotate(-1.5deg)}to{transform:rotate(1.7deg)}}
+@keyframes sway-front{from{transform:rotate(1.9deg) translateX(-3px)}to{transform:rotate(-1.6deg) translateX(4px)}}
+@keyframes twinkle{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.6)}}
 @keyframes bloom{0%{opacity:0;transform:scale(0) rotate(-50deg)}12%{opacity:1;transform:scale(1.2) rotate(0)}18%{transform:scale(1)}62%{opacity:1;transform:scale(1)}74%,100%{opacity:0;transform:scale(.3) rotate(25deg)}}
 @keyframes fall{0%{opacity:0;transform:translate(0,0) rotate(0)}6%{opacity:.9}35%{transform:translate(calc(var(--x) * -.6),110px) rotate(200deg)}70%{opacity:.75;transform:translate(var(--x),220px) rotate(380deg)}100%{opacity:0;transform:translate(calc(var(--x) * .4),330px) rotate(560deg)}}
 @keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}

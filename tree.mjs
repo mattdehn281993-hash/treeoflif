@@ -152,11 +152,11 @@ export function heroTree() {
   const t = parts();
   const svg = (cls, body) => `<svg class="layer ${cls}" viewBox="0 0 600 560" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${t.defs}${body}</svg>`;
   const inCrown = ([x, y]) => Math.hypot((x - 300) / 215, (y - 190) / 140) < 1;
-  const blooms = t.tips.filter(inCrown).filter((_, i) => i % 11 === 0).slice(0, 30)
-    .map(([x, y], i) => `<g transform="translate(${Math.round(x)} ${Math.round(y)})"><use class="bloom" href="#fl" style="--d:${(3.2 + (i * 1.37) % 11).toFixed(2)}s"/></g>`).join('');
-  const falls = [[150, 210], [420, 180], [260, 120], [470, 260], [210, 290]]
-    .map(([x, y], i) => `<g transform="translate(${x} ${y})"><use class="fall" href="#tl" style="--d:${(4 + i * 3.1).toFixed(1)}s;--x:${i % 2 ? 46 : -40}px"/></g>`).join('');
-  const flower = '<g id="fl"><g fill="#f6eedb">' + [0, 72, 144, 216, 288].map(a => `<ellipse rx="2.6" ry="1.7" cx="2.6" transform="rotate(${a})"/>`).join('') + '</g><circle r="1.5" fill="#e0bf78"/></g>';
+  const blooms = t.tips.filter(inCrown).filter((_, i) => i % 6 === 0).slice(0, 48)
+    .map(([x, y], i) => `<g transform="translate(${Math.round(x)} ${Math.round(y)})"><use class="bloom" href="#fl" style="--d:${(3.2 + (i * 1.37) % 9).toFixed(2)}s"/></g>`).join('');
+  const falls = [[150, 210], [420, 180], [260, 120], [470, 260], [210, 290], [360, 230], [110, 260], [500, 200], [300, 160]]
+    .map(([x, y], i) => `<g transform="translate(${x} ${y})"><use class="fall" href="#tl" style="--d:${(3.5 + i * 1.6).toFixed(1)}s;--x:${i % 2 ? 46 : -40}px"/></g>`).join('');
+  const flower = '<g id="fl"><g fill="#f6eedb">' + [0, 72, 144, 216, 288].map(a => `<ellipse rx="4.4" ry="2.8" cx="4.2" transform="rotate(${a})"/>`).join('') + '</g><circle r="2.4" fill="#e0bf78"/></g>';
   return `<div class="tree-stage" role="img" aria-label="${LABEL}, with blossoms">
 ${svg('l-base', `${t.ring}${t.sky}${t.roots}`)}
 ${svg('l-back', `<g class="crown">${t.back}${t.trunk}</g>`)}
